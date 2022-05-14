@@ -13,7 +13,7 @@
   
   * They are also harder to interpret and less intuitive than a decision tree.
 
-  ![Alt text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/RandomForestClassifier.jpg "Random Forest Classifier")
+    ![Alt text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/RandomForestClassifier.jpg "Random Forest Classifier")
   
   * This algorithm has some important parameters like max_depth, max_features, n_estimators, and min_sample_leaf. The number of trees which can be used to build the model is defined by n_estimators. 
   

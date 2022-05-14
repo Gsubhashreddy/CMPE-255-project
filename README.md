@@ -1,20 +1,37 @@
 # CMPE-255-project
 
-## Team members: 
-###### Kaushal Karinaga Shetter Raju - kaushalkr27
-###### Sai Subhash Chandra Reddy Gangireddygari - Gsubhashreddy
-###### Abraham Mathew - abematt
-###### Sarat Kumar Kaniti - sarat458
+## Project Title:  Finding Donors for Charity
 
-## Data:
-###### We are using a 120 years dataset from Kaggle - https://www.kaggle.com/code/duttadebadri/analysing-the-olympics-for-last-120-yrs/data?select=athlete_events.csv
+## Team members: 
+#### Kaushal Karinaga Shetter Raju - kaushalkr27
+#### Sai Subhash Chandra Reddy Gangireddygari - Gsubhashreddy
+#### Abraham Mathew - abematt
+#### Sarat Kumar Kaniti - sarat458
+
+## Dataset:
+#### We are using census income dataset from openML- https://www.openml.org/search?type=data&status=active&id=4535&sort=runs
 
 ## Description:
-###### After considerable analysis into a number of datasets, 120 Years of Olympic Games is being examined for representation. Its dataset has a range of benefits, including the fact that it is a large-scale dataset that spans the years 1896 to 2016. Last but not least, the Olympic Games dataset is seen to be worthwhile analysing in terms of visual representation and user experience.  A data set from Kaggle was chosen to solve the main question, which consists of two unique tables, athlete events, and event regions.
-###### The problems being solved can be a multitude of problems.  Which countries are the most dominant? How has involvement evolved? Which countries have the most medals in various disciplines? What is the ratio of female/male Olympic attendees?. What factors of an athlete influence the success rate of a country.
+  * We're working with data from the United States Census Bureau's income survey from 1994. The challenge we're seeking to tackle with this dataset is identifying people who earn more than $50,000. Non-profit or charitable groups can benefit from this insight. Understanding an individual's income can assist a non-profit in determining how large of a donation to request, as well as whether or not to contact out in the first place.
+  * While determining an individual's general income bracket directly from public sources can be challenging, we can deduce this figure from other publicly available data such as openML.
+  * This data set has 14 features such as 'age','work class','education','occupation','income' and so on. Income will be our target label and remaining columns will be features of this dataset.
+  * A preliminary investigation of the dataset will determine how many individuals fit into either group, and will tell us about the percentage of these individuals making more than $50,000.
+  * The Individuals are grouped into two categories - 'greater than or equal to $50K' and 'less than $50k'.
 
 ## Potential Methods:
-###### The dataset is first pre-processed, with all null values found and purged, as well as noise and redundant data omitted. This process can be augmented by visualization techniques such as plots and graphs. These plots will enable data preparation such as weeding out noisy, incomplete data, identifying correlations etc. We must apply an effective feature selection strategy to find the most key aspects in order to build a model that accurately predicts medal performance in the coming Olympic games. The embedded feature selection model will use the package that includes the wrapper function rfcv() to pretrain a Random Forest and omit the least important variables in order to employ the most suited strategy. This will assist make the decision tree more relevant and based on the target variables in the long run. This will help speed up the computing process. Random Forest Classification was used to train the dataset since it is a simple way to measure the relative relevance of each feature on the prediction. When a node is split, the best feature from a random group of features is found, resulting in an improved model than when a model selects the most relevant feature.
+  * The dataset is first pre-processed, with all null values found and purged, as well as noise and redundant data omitted. This process can be augmented by visualization techniques such as plots and graphs.
+  * These plots will enable data preparation such as weeding out noisy, incomplete data, identifying correlations etc. We must apply an effective feature selection strategy to find the most key aspects in order to build a model that accurately predicts individuals with more than $50k income who are likely to make a donation.
+  * It is often good practice to perform some type of scaling on numerical features. Applying a scaling to the data does not change the shape of each feature's distribution, however, normalization ensures that each feature is treated equally when applying supervised learning. Typically, learning algorithms expect input to be numeric, which requires that non-numeric features (called categorical variables) be converted. One popular way to convert categorical variables is by using the one-hot encoding scheme. One-hot encoding creates a "dummy" variable for each possible category of each non-numeric feature.
+  * Individuals earning more than $50K will be predicted in this section. As a result, we already have income as a feature. We'll use Supervised Learning Algorithms because we have a labelled dataset.
+  * Some of the supervised learning models that are currently available in scikit-learn are :
+    * Gaussian Naive Bayes (GaussianNB)
+    * Decision Trees
+    * Ensemble Methods (Bagging, AdaBoost, Random Forest, Gradient Boosting)
+    * K-Nearest Neighbors (KNeighbors)
+    * Stochastic Gradient Descent Classifier (SGDC)
+    * Support Vector Machines (SVM)
+    * Logistic Regression
+* Depending on the Pre processing and exploratory data analysis , we will be choosing the 3 appropriate methods from the above.
 
 
 

@@ -39,6 +39,26 @@
 
 ## Conclusion:
 
+### AUC ROC curve:
+
+ * AUC — ROC curve is a performance measurement for the classification problems at various threshold settings. ROC is a probability curve and AUC represents the degree or measure of separability. It tells how much the model is capable of distinguishing between classes. Higher the AUC, the better the model is at predicting 0’s as 0’s and 1’s as 1’s.
+ 
+ * The area under the ROC curve represents the ability of our model to predict correct values, and the curve that we got is quite a good score.
+ 
+ * A comparative study of the above models with respect to accuracy, precision, recall, ROC score is computed together for better decision.
+ 
+ * From the table above, random forest gives the best accuracy and ROC score.
+
+   ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/Summary_Table.png "Random Forest Classifier")
+   
+ * All the ROC curvers are shown below
+ 
+   ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/ROC_Summary.png "Random Forest Classifier")
+
+  * Ada boost covers the maximum area and hence is a better model.
+
+
+
  
 
 

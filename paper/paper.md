@@ -47,7 +47,7 @@
  
  * A comparative study of the above models with respect to accuracy, precision, recall, ROC score is computed together for better decision.
  
- * From the table above, random forest gives the best accuracy and ROC score.
+ * From the table above, ada boost gives the best accuracy and ROC score.
 
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/Summary_Table.png "Random Forest Classifier")
    

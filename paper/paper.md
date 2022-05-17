@@ -151,7 +151,7 @@ Income — The target variable, which predicts if the income is higher or lower 
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/RFC_Output.jpg "Random Forest Classifier")
 
 
-## Method 4: AdaBoostClassifier:
+## Method 2: AdaBoostClassifier:
 
  * Boosting refers to a class of machine learning ensemble algorithms where models are added sequentially and later models in the sequence correct the predictions made by earlier models in the sequence. 
 
@@ -175,6 +175,7 @@ Income — The target variable, which predicts if the income is higher or lower 
 
 
 ## Method 3:
+<<Method 3 here>>
 
 ## Conclusion:
 

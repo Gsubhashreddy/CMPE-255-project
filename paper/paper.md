@@ -172,6 +172,9 @@ Income — The target variable, which predicts if the income is higher or lower 
 ### Output:
  * The accuracy of this model is 85.61.
 
+ * We have taken the classification report and it is as follows:   
+ 
+   ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/AdaBooster_Output.png "Adaboost Classifier")
 
 
 ## Method 3:

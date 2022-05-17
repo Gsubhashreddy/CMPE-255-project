@@ -177,8 +177,51 @@ Income — The target variable, which predicts if the income is higher or lower 
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/AdaBooster_Output.png "Adaboost Classifier")
 
 
-## Method 3:
-<<Method 3 here>>
+## Method 3: KNN
+
+* When KNN is used for classification, the output can be calculated as the class with the highest frequency from the K-most similar instances. Each instance in essence votes for their class and the class with the most votes is taken as the prediction.
+
+* Class probabilities can be calculated as the normalized frequency of samples that belong to each class in the set of K most similar instances for a new data instance. For example, in a binary classification problem (class is 0 or 1):p(class=0) = count(class=0) / (count(class=0)+count(class=1))
+
+* If we are using K and we have an even number of classes(2 in our case) it is a good idea to choose a K value with an odd number to avoid a tie. So, here we chose to take k as 5 initially. Ties can be broken consistently by expanding K by 1 and looking at the class of the next most similar instance in the training dataset.
+
+* Choosing best value of k: KNN reducing overfitting is a fact. On the other hand, there is a need to choose the best value for K. So now how do we choose K? Generally, we use the square root of the number of samples in the dataset as value for K. An optimal value must be found out since lower value may lead to overfitting and higher value may require high computational complication in distance. So, using an error plot may help. Another method is the elbow method. You can prefer to take root else can also follow the elbow method.
+
+* Let’s dive deep into the different steps of K-NN for classifying a new data point
+
+* Step 1: Select the value of K neighbors(say k=5)
+
+* Step 2: Find the K (5) nearest data point for our new data point based on euclidean distance
+
+* Step 3: Among these K data points count the data points in each category
+
+* Step 4: Assign the new data point to the category that has the most neighbors of the new datapoint
+
+* Here we are using 1 parameter in the model creation. n_neighbors is setting as 5, which means 5 neighborhood points are required for classifying a given point. The distance metric we are using is Minkowski, the equation for it is given below
+
+* ![Alt text](../images/KNN-formula.png
+"KNN")
+
+* As per the equation, we have to select the p-value also.
+p = 1 , Manhattan Distance
+p = 2 , Euclidean Distance
+p = infinity , Cheybchev Distance
+In our problem, we are choosing the p as 2 .Our Model is created, now we have to predict the output for the test set
+
+* This model is evaluated based on its accuracy score.
+
+### Selecting best value for k:
+
+* We plotted a graph of accuracy against the neighbors and found that for n=20, the accuracy is the highest which is around 84.32
+
+### Confusion Matrix
+
+![Alt text](../images/KNN-ConfusionMatrix.png
+"Confusion Matrix")
+
+### Output
+
+* The accuracy of this model is 83.15.
 
 ## Conclusion:
 

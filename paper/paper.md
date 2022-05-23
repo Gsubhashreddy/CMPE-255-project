@@ -41,7 +41,7 @@ Income — The target variable, which predicts if the income is higher or lower 
 *	Our data has a right skewness, with most of the ages lying between 20 and 50. As people get older, the number continues to decrease.
 *	In this dataset, the greatest number of people are young, white, male, high school graduates with 9 to 10 years of education, and work 40 hours per week.
  ![Alt text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/Age.png "Age Distribution Plot")
- 
+
  ### Workclass column
 *	We used value_counts() function to get a series containing counts of unique values in work class column.
 *	We used seaborn. countplot() method  to show the counts of observations in each categorical bin using bars.
@@ -136,45 +136,31 @@ Income — The target variable, which predicts if the income is higher or lower 
   * This algorithm has some important parameters like max_depth, max_features, n_estimators, and min_sample_leaf. The number of trees which can be used to build the model is defined by n_estimators. 
   
   * Max_features determine the maximum number of features the random forest can use in an individual tree. The maximum depth of the decision trees is given by the parameter max_depth. The minimum number of samples required at a leaf node is given by min_sample_leaf.
- 
+
 ### Model Evaluation:
 
  * In this step, we will evaluate our model using accuracy_score as a metric. Accuracy is the ratio of correct predicted values over the total predicted values. It tells us how accurate our prediction is.
- 
+
  * **Hyperparameter Tuning**: We will tune the hyperparameters of our random forest classifier using RandomizedSearchCV which finds the best hyperparameters by searching randomly avoiding unnecessary computation. We will try to find the best values for ‘n_estimators’ and ‘max_depth’.
 
 ### Output:
  * This method gives an accuracy of 84.48 after tuning its hyperparameters. 
- 
+
  * We have taken the classification report and it is as follows:   
- 
+
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/RFC_Output.jpg "Random Forest Classifier")
 
 
 ## Method 2: AdaBoostClassifier:
 
- * Boosting refers to a class of machine learning ensemble algorithms where models are added sequentially and later models in the sequence correct the predictions made by earlier models in the sequence. 
-
- * AdaBoost, short for “Adaptive Boosting,” is a boosting ensemble machine learning algorithm, and was one of the first successful boosting approaches.
-
- * We call the algorithm AdaBoost because, unlike previous algorithms, it adjusts adaptively to the errors of the weak hypotheses.
-
- * AdaBoost combines the predictions from short one-level decision trees, called decision stumps, although other algorithms can also be used. Decision stump algorithms are used as the AdaBoost algorithm seeks to use many weak models and correct their predictions by adding additional weak models.
-
- * The training algorithm involves starting with one decision tree, finding those examples in the training dataset that were misclassified, and adding more weight to those examples. Another tree is trained on the same data, although now weighted by the misclassification errors. This process is repeated until a desired number of trees are added.
-
- * If a training data point is misclassified, the weight of that training data point is increased (boosted). A second classifier is built using the new weights, which are no longer equal. Again, misclassified training data have their weights boosted and the procedure is repeated.
-
- * The algorithm was developed for classification and involves combining the predictions made by all decision trees in the ensemble. A similar approach was also developed for regression problems where predictions are made by using the average of the decision trees. The contribution of each model to the ensemble prediction is weighted based on the performance of the model on the training dataset.
-
- * We trained the model with Ada boost classifier and predicted the outputs.
+Boosting refers to a class of machine learning ensemble algorithms where models are added sequentially and later models in the sequence correct the predictions made by earlier models in the sequence. AdaBoost, short for “Adaptive Boosting,” is a boosting ensemble machine learning algorithm, and was one of the first successful boosting approaches. We call the algorithm AdaBoost because, unlike previous algorithms, it adjusts adaptively to the errors of the weak hypotheses. AdaBoost combines the predictions from short one-level decision trees, called decision stumps, although other algorithms can also be used. Decision stump algorithms are used as the AdaBoost algorithm seeks to use many weak models and correct their predictions by adding additional weak models. The training algorithm involves starting with one decision tree, finding those examples in the training dataset that were misclassified, and adding more weight to those examples. Another tree is trained on the same data, although now weighted by the misclassification errors. This process is repeated until a desired number of trees are added. If a training data point is misclassified, the weight of that training data point is increased (boosted). A second classifier is built using the new weights, which are no longer equal. Again, misclassified training data have their weights boosted and the procedure is repeated. The algorithm was developed for classification and involves combining the predictions made by all decision trees in the ensemble. A similar approach was also developed for regression problems where predictions are made by using the average of the decision trees. The contribution of each model to the ensemble prediction is weighted based on the performance of the model on the training dataset. We trained the model with Ada boost classifier and predicted the outputs.
 
 ### Output:
- * The accuracy of this model is 85.61.
+The accuracy of this model is **85.61**. We have taken the classification report and it is as follows:   
 
- * We have taken the classification report and it is as follows:   
- 
-   ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/AdaBooster_Output.png "Adaboost Classifier")
+![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/AdaBooster_Output.png "Adaboost Classifier")
+
+Since the boosting algorithm involves combining of different weak learners, it results in "averaging" out the overfitting that is done in all the weak learners which usually leads to better accuracy. ADABoosting also involves the process of assigning weightage based on prediction accuracy during training. By assigning higher weightage to mispredicted samples, ADABoosting ensures that those learners are given more attention to in the next training phases. It appears that when compared to Random Forest Classifier, the use of weighted decision stumps as opposed to decision trees has lead to a increase in accuracy. Random Forest Classifier follows a parallel ensembling approach aiming to reduce variance while ADABooster follows a sequential approach aiming to reduce bias. Since the dataset is not a large dataset consisting of 32530 records, it can be observed that parallel processing doesn't result in significant change. 
 
 
 ## Method 3: KNN
@@ -228,17 +214,17 @@ In our problem, we are choosing the p as 2 .Our Model is created, now we have to
 ### AUC ROC curve:
 
  * AUC — ROC curve is a performance measurement for the classification problems at various threshold settings. ROC is a probability curve and AUC represents the degree or measure of separability. It tells how much the model is capable of distinguishing between classes. Higher the AUC, the better the model is at predicting 0’s as 0’s and 1’s as 1’s.
- 
+
  * The area under the ROC curve represents the ability of our model to predict correct values, and the curve that we got is quite a good score.
- 
+
  * A comparative study of the above models with respect to accuracy, precision, recall, ROC score is computed together for better decision.
- 
+
  * From the table above, ada boost gives the best accuracy and ROC score.
 
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/Summary_Table.png "Random Forest Classifier")
    
  * All the ROC curvers are shown below
- 
+
    ![Alt text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/ROC_Summary.png "Random Forest Classifier")
 
   * Ada boost covers the maximum area and hence is a better model.
@@ -246,5 +232,4 @@ In our problem, we are choosing the p as 2 .Our Model is created, now we have to
 
 
  
-
 

@@ -15,6 +15,27 @@ Many crucial judgments have always been based on data. When an assumption is sup
 
 We're using data from a 1994 income survey conducted by the US Census Bureau. With this dataset, we want to solve the problem of identifying persons who make more than $50,000. This information can be useful to non-profit or philanthropic organizations. Understanding an individual's income can assist a non-profit in determining how large of a donation to request, as well as whether or not to contact out in the first place.
 
+### Dataset
+   We are using census income dataset from openML- https://www.openml.org/search?type=data&status=active&id=4535&sort=runs . The data is collected by the United States Census Bureau's income survey. It contains about 32561 rows and 15 features.
+ 
+ | Feature Name        | Type           | Decsription |
+| :-------------: |:-------------:| :-----:|
+|Age |	Numerical|	The age of an individual, this ranges from 17 to 90.|
+|Workclass	|Categorical	|The class of work to which an individual belongs.|
+|Fnlwgt	|Numerical	|The weight assigned to the combination of features (an estimate of how many people belong to this set of combination)|
+|Education	|Categorical	|Highest level of education|
+|Education_num|	Numerical|	Number of years for which education was taken|
+|Marital_Status|	Categorical|	Represents the category assigned on the basis of marriage status of a person|
+|Occupation	|Categorical	|Profession of a person|
+|Relationship|	Categorical|	Relation of the person in his family|
+|Race|	Categorical|	Origin background of a person|
+|Sex|	Categorical	|Gender of a person|
+|Capital_gain|	Numerical|	Capital gained by a person|
+|Capital_loss|	Numerical|	Loss of capital for a person|
+|Hours_per_week|	Numerical	|Number of hours for which an individual works per week|
+|Native_Country	|Categorical|	Country to which a person belongs|
+|Income	|Numerical|	Income| 
+
 
 
 

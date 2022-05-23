@@ -36,6 +36,15 @@ We're using data from a 1994 income survey conducted by the US Census Bureau. Wi
 |Native_Country	|Categorical|	Country to which a person belongs|
 |Income	|Numerical|	Income| 
 
+### B.	Exploratory Data Analysis
+#### Data Preprocessing
+* We import necessary libraries for the current project. Importing refers to allowing a Python file or a Python module to access the script from another Python file or module. We can only use functions and properties our program can access.
+* All the standard libraries like numpy, pandas, matplotlib, and seaborn are imported in this step. We use numpy for linear algebra operations, pandas for using data frames, matplotlib, and seaborn for plotting graphs. The dataset is imported using the pandas command read_csv()
+* We use the describe method to check for the description of the dataframe. The describe() method returns description of the data in the Data Frame. If the Data Frame contains numerical data, the description contains this information for each column: count - The number of not-empty values. mean - The average (mean) value.
+* Now, to check the first 5 rows of the data frame we use df.head()
+* We draw a correlation matrix to check the correlation between each pair of variables. This helps us in further analyzing which features are important, and which are not.
+* From the correlation heatmap, we can see that the dependent feature ‘income’ is highly correlated with age, numbers of years of education, capital gain, and the number of hours per week. 
+* From the correlation matrix, we observe that income has 34% correlation with ‘Education_num’, 23% correlation with ‘hours_per_week’ and ‘age’, and 22% correlation with ‘Capital_gain’. The correlations are moderate.
 
 
 

@@ -10,7 +10,7 @@
 
    We're using data from a 1994 income survey conducted by the US Census Bureau. With this dataset, we want to solve the problem of identifying persons who make more than $50,000. This information can be useful to non-profit or philanthropic organizations. Understanding an individual's income can assist a non-profit in determining how large of a donation to request, as well as whether or not to contact out in the first place.
 
-### Dataset
+### A. Dataset
    We are using census income dataset from openML- https://www.openml.org/search?type=data&status=active&id=4535&sort=runs . The data is collected by the United States Census Bureau's income survey. It contains about 32561 rows and 15 features.
  
  | Feature Name        | Type           | Decsription |
@@ -111,17 +111,40 @@
 * If the relationship status is 'Husband/Wife,' the odds of earning more than 50K(Dollars) are considerable.
 * Based on the scatterplot of age, hours per week, and income, we can see that to make more than 50K(Dollars), a person must be at least 30 years old or he/she should work at least 60 hours per week.
 
-## D.	Feature Selection
+### D.	Feature Selection
 *	The curse of multicollinearity and the problem of overfitting can be solved by performing Feature Selection. The feature importances can be easily found by using the ExtraTreesClassifier.
 *	We found that some features are least important and contribute nothing to prediction. As a result, we dropped all of them.
-## E.	Oversampling:
+### E.	Oversampling:
 *	The dependent feature ‘Income’ is highly imbalanced as 75.92% values have income less than 50k and 24.08% values have income more than 50k. This needs to be fixed as it results in a low F1 score. As we have a small dataset we can perform Oversampling using a technique like RandomOverSampler.
-## F.	Methods for fitting data into classification Models:
+### F.	Methods for fitting data into classification Models:
 *	The dataset is then split into X which contains all the independent features and Y which contains the dependent feature ‘Income’
 *	We split our dataset into train and test sets to evaluate how well our machine learning model performs. The train set is used to fit the model, the statistics of the train set are known. The second set is called the test data set, this set is solely used for predictions.
 *	Here we are splitting the training and the testing data sets in the ratio of 80:20
 
-   
-   
+## Methods
+### Random Forest Classifier
+   Random forest is a Supervised learning algorithm that is used for both classification and regression. Since our project comes under classification, we thought this would be a great choice to start with. It is a type of bagging ensemble algorithm, which creates multiple decision trees simultaneously trying to learn from the dataset independent of one another. The final prediction is selected using majority voting.
+  
+  Random forests are very flexible and give high accuracy as it overcomes the problem of overfitting by combining the results of multiple decision trees. Even for large datasets, random forests give a good performance. They also give good accuracy if our dataset has many missing values. But random forests are more complex and computationally intensive than decision trees resulting in a time-consuming model building process. They are also harder to interpret and less intuitive than a decision tree.
+  
+  This algorithm has some important parameters like max_depth, max_features, n_estimators, and min_sample_leaf. The number of trees which can be used to build the model is defined by n_estimators. Max_features determine the maximum number of features the random forest can use in an individual tree. The maximum depth of the decision trees is given by the parameter max_depth. The minimum number of samples required at a leaf node is given by min_sample_leaf.
+#### Model Evaluation:
+  In this step, we will evaluate our model using accuracy_score as a metric. Accuracy is the ratio of correct predicted values over the total predicted values. It tells us how accurate our prediction is. We will tune the hyperparameters of our random forest classifier using RandomizedSearchCV which finds the best hyperparameters by searching randomly avoiding unnecessary computation. We will try to find the best values for ‘n_estimators’ and ‘max_depth’. This method gives an accuracy of ***84.48*** after tuning its hyperparameters. We have taken the classification report and it is as follows:
+ 
+![Alt-text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/RandomForestClassifier.jpg)
+ 
+### Logistic Regression
+  Logistic regression is a classification algorithm, used when the value of the target variable is categorical in nature. Logistic regression is most commonly used when the data in question has binary output, so when it belongs to one class or another, or is either a 0 or 1. Classification tasks have discrete categories, unlike regressions tasks. Here, by the idea of using a regression model to solve the classification problem, we rationally raise a question of whether we can draw a hypothesis function to fit to the binary dataset. The answer is that we will have to use a type of function, different from linear functions,  called a logistic function, or a sigmoid function.
+  
+  The sigmoid function/logistic function is a function that resembles an “S” shaped curve when plotted on a graph. It takes values between 0 and 1 and “squishes” them towards the margins at the top and bottom, labeling them as 0 or 1.The goal of classification with the dataset it to predict whether or not an income is likely to be greater than or less than or equal to 50k. There are only two categories this makes the classification task perfect for logistic regression.
+  
+ #### Model Evaluation:
+  Now that we have prepped the data, we can feed it into the logistic regression classifier. First, we imported the logistic regression algorithm from Scikit-learn. Now we created an instance of the classifier and fit it to the training data. We created the predictions by running the classifier on the test dataset.
+  Finally, we checked to see how the classifier performed by importing some metrics and checking the predicted values against the actual values. This model is evaluated based on its accuracy score. The accuracy of this model is 83.86. We have taken the classification and it is as follows.
+  
+![Alt-text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/logistic_regression.png)
+
+
+
 
 

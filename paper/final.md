@@ -194,4 +194,32 @@ The accuracy of this model is **85.61**. We have taken the classification report
 
 ## COMPARISONS
 
+
+
+We have used the below metrics to compare our models.
+
+**Performance Metrics**
+
+1. Precision- The number of positive class predictions that actually, belong to the positive class is measured by precision.
+
+2. Recall- The number of positive class predictions made out of all positive examples in the dataset is measured
+
+​    by recall.
+
+3. F1-Score- F1-Score generates a single score that accounts for both precision and recall concerns in a single
+
+   number.
+
+4. Accuracy- It’s the proportion of correct predictions to total input samples. It only works if each class has an
+
+​	equal number of samples.
+
+5. AUC - The Area Under the Curve (AUC) is a curve that measures a classifier’s ability to distinguish between classes. The greater the AUC, the better.
+
+   ![Alt-text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/Summary_Table.png)
+
+   ![Alt-text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/ROC_Summary.png)
+
 ## CONCLUSION
+
+In this analysis, we used four prominent classification techniques using US census data for Income. Adaboost has slightly better performed compared to random forest. These techniques can be used by charity organizations to classify potential donors.

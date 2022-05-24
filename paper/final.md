@@ -7,9 +7,9 @@
 
 ## Introduction
    The income of the citizens has a significant impact on a country's economic well-being.
-   
+
    Many business and public sector choices are dependent on Census data. The democratic form of governance relies heavily on census data, which has a significant impact on the economy. The government distributes federal cash to different states and localities using census-related data.
-   
+
 Not just for the reasons stated above, but also for post-census population estimates and predictions, economic and social scientific research, and a variety of other uses. As a result, the significance of this data and its accurate forecasts is obvious to us.
 Many crucial judgments have always been based on data. When an assumption is supported by facts and figures, the odds of being wrong and making poor judgments are reduced.
 
@@ -17,7 +17,7 @@ We're using data from a 1994 income survey conducted by the US Census Bureau. Wi
 
 ### Dataset
    We are using census income dataset from openML- https://www.openml.org/search?type=data&status=active&id=4535&sort=runs . The data is collected by the United States Census Bureau's income survey. It contains about 32561 rows and 15 features.
- 
+
  | Feature Name        | Type           | Decsription |
 | :-------------: |:-------------:| :-----:|
 |Age |	Numerical|	The age of an individual, this ranges from 17 to 90.|
@@ -108,6 +108,8 @@ We're using data from a 1994 income survey conducted by the US Census Bureau. Wi
 
 ![Alt text](https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/rel_vs_inc.png "RelationshipLevel Vs Income Plot")
 
+
+
 ## C. Analysis from EDA
 * If a person's race is 'White'/'Asian-pac-islander,' he or she has a good likelihood of earning more than 50K(Dollars).
 * Males are more likely than females to earn more than 50K(Dollars).* * 
@@ -129,4 +131,20 @@ We're using data from a 1994 income survey conducted by the US Census Bureau. Wi
    
    
 
+## Methods
 
+### C.	AdaBooster
+
+Boosting refers to a class of machine learning ensemble algorithms where models are added sequentially and later models in the sequence correct the predictions made by earlier models in the sequence. AdaBoost, short for “Adaptive Boosting,” is a boosting ensemble machine learning algorithm, and was one of the first successful boosting approaches. 
+
+We call the algorithm AdaBoost because, unlike previous algorithms, it adjusts adaptively to the errors of the weak hypotheses. AdaBoost combines the predictions from short one-level decision trees, called decision stumps, although other algorithms can also be used. Decision stump algorithms are used as the AdaBoost algorithm seeks to use many weak models and correct their predictions by adding additional weak models. The training algorithm involves starting with one decision tree, finding those examples in the training dataset that were misclassified, and adding more weight to those examples. Another tree is trained on the same data, although now weighted by the misclassification errors. This process is repeated until a desired number of trees are added. If a training data point is misclassified, the weight of that training data point is increased (boosted). A second classifier is built using the new weights, which are no longer equal. Again, misclassified training data have their weights boosted and the procedure is repeated. 
+
+The algorithm was developed for classification and involves combining the predictions made by all decision trees in the ensemble. A similar approach was also developed for regression problems where predictions are made by using the average of the decision trees. The contribution of each model to the ensemble prediction is weighted based on the performance of the model on the training dataset. We trained the model with an Ada boost classifier and predicted the outputs.
+
+**Model Evaluation:**
+
+Since the boosting algorithm involves combining of different weak learners, it results in "averaging" out the overfitting that is done in all the weak learners which usually leads to better accuracy. AdaBoosting also involves the process of assigning weightage based on prediction accuracy during training. By assigning higher weightage to mispredicted samples, AdaBoosting ensures that those learners are given more attention in the next training phases. It appears that when compared to Random Forest Classifier, the use of weighted decision stumps as opposed to decision trees has led to an increase in accuracy. Random Forest Classifier follows a parallel ensemble approach aiming to reduce variance while AdaBooster follows a sequential approach aiming to reduce bias. Since the dataset is not a large dataset consisting of 32530 records, it can be observed that parallel processing doesn't result in significant change.
+
+The accuracy of this model is **85.61**. We have taken the classification report and it is as follows:
+
+[Alt Text]( https://github.com/kaushalkr27/CMPE-255-project/blob/main/images/AdaBooster_Output.png ) "AdaBooster Classification Report"
